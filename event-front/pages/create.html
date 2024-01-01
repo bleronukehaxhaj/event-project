@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Create Event</title>
+</head>
+<body onload="updateButtonVisibility()">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">
+            L O G O
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4 active" href="events.html">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-3 " href="aboutUs.html">About Us</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-outline-dark me-2" href="create.html" id="btnCreate">Create Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary me-2" href="login.html" id="btnLogin">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="logoutUser(event)" class="btn btn-outline-primary me-2" href="login.html" id="btnLogout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="signup.html" id="btnSignup">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container mt-5">
+    <div class="card mb-5">
+        <div class="card-body">
+            <h2 class="card-title">Event Information</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="inputEventName" class="form-label">Event Name</label>
+                    <input type="text" class="form-control" id="inputEventName" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="textAreaDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="textAreaDescription" rows="3" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputDate" class="form-label">Event Date</label>
+                    <input type="datetime-local" class="form-control" id="inputDate" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputRegistrationFee" class="form-label">Registration Fee</label>
+                    <input type="number" step="0.01" class="form-control" id="inputRegistrationFee" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputContactEmail" class="form-label">Contact Email</label>
+                    <input type="email" class="form-control" id="inputContactEmail" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputContactPhone" class="form-label">Contact Phone</label>
+                    <input type="tel" class="form-control" id="inputContactPhone" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="selectEventType" class="form-label">Event Type</label>
+                    <select class="form-select" id="selectEventType" required>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="selectEventStatus" class="form-label">Event Status</label>
+                    <select class="form-select" id="selectEventStatus" required>
+
+                    </select>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <h4>Organizer Information</h4>
+                            <label for="inputOrganizerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="inputOrganizerName" required>
+
+                            <label for="inputOrganizerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputOrganizerEmail" required>
+
+                            <label for="inputOrganizerPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="inputOrganizerPhone" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <h4>Venue Information</h4>
+                            <label for="inputVenueName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="inputVenueName" required>
+
+                            <label for="textAreaVenueDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="textAreaVenueDescription" rows="3" required></textarea>
+
+                            <label for="inputVenueCapacity" class="form-label">Capacity</label>
+                            <input type="number" class="form-control" id="inputVenueCapacity" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <h4>Address Information</h4>
+                            <label for="inputAddressStreet" class="form-label">Street</label>
+                            <input type="text" class="form-control" id="inputAddressStreet" required>
+
+                            <label for="inputAddressCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="inputAddressCity" required>
+
+                            <label for="inputAddressCountry" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="inputAddressCountry" required>
+
+                            <label for="inputAddressZipCode" class="form-label">Zip Code</label>
+                            <input type="text" class="form-control" id="inputAddressZipCode" required>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="m-4">
+                    <button type="submit" class="btn btn-primary" id="btnSave">Save</button>
+                    <a href="events.html" type="button" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="bg-dark text-center py-3 text-light">
+    <div class="container">
+        <p class="mb-0">
+            <a class="nav-link d-inline" href="../index.html">Home</a> |
+            <a class="nav-link d-inline" href="events.html">Events</a> |
+            <a class="nav-link d-inline" href="aboutUs.html">About Us</a>
+        </p>
+        <p class="mt-3 mb-0">&copy; 2023 Events. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="../scripts/app.js"></script>
+<script src="../scripts/create-event.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
